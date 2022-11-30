@@ -18,4 +18,10 @@ public static class EventManager
     public static Action OnWinLevel;
     public static Action OnLoseLevel;
     #endregion
+
+    #region Event input
+    public static Action MouseButtonDown;
+    public static Action MouseButtonUp;
+    public static Action<Vector3> MouseButtonDownUpdate;
+    #endregion
 }

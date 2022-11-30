@@ -10,4 +10,8 @@ public class Constants
     // Scene
     public const string SCENE_LOADING = "Loading";
     public const string SCENE_GAMEPLAY = "Gameplay";
+
+
+
+    public const string LEVEL_FORMAT = "Level{0}";
 }
