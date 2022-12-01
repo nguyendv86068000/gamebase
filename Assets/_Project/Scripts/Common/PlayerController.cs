@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,18 +7,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GunController m_gunController;
     [SerializeField] private Transform m_aimTarget;
     [SerializeField] private LineRenderer m_lineRenderer;
+    [SerializeField] private Bullet m_bulletPrefab;
 
     private Vector3 m_headGun;
     private Ray m_rayGun;
 
-    void OnEnable()
+    private void OnEnable()
     {
         EventManager.MouseButtonDown += HandleFingerDown;
         EventManager.MouseButtonUp += HandleFingerUp;
         EventManager.MouseButtonDownUpdate += HandleFingerUpdate;
 
     }
-    void OnDisable()
+    private void OnDisable()
     {
         EventManager.MouseButtonDown -= HandleFingerDown;
         EventManager.MouseButtonUp -= HandleFingerUp;
@@ -29,6 +30,14 @@ public class PlayerController : MonoBehaviour
         m_aimTarget.gameObject.SetActive(false);
         ClearAllPointLineRenderer();
     }
+    private void InstantiateBullet()
+    {
+        Bullet bullet = Instantiate(m_bulletPrefab);
+        // đoạn này cho ra ngoài một chút để tránh làm ảnh hưởng tới player do 2 collison chồng nhau
+        bullet.transform.position = m_rayGun.GetPoint(0.5f);
+        bullet.Init(m_rayGun.direction.normalized);
+    }
+
     private void ClearAllPointLineRenderer()
     {
         m_lineRenderer.positionCount = 0;
@@ -43,7 +52,7 @@ public class PlayerController : MonoBehaviour
         m_lineRenderer.SetPosition(1, end);
     }
 
-    public void SetAimTargetPosition(Vector3 pos)
+    private void SetAimTargetPosition(Vector3 pos)
     {
         m_aimTarget.position = new Vector3(pos.x, pos.y, 0);
     }
@@ -55,6 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         m_aimTarget.gameObject.SetActive(false);
         ClearAllPointLineRenderer();
+        InstantiateBullet();
     }
     void HandleFingerUpdate(Vector3 mousePos)
     {
@@ -66,5 +76,13 @@ public class PlayerController : MonoBehaviour
 
         SetAimTargetPosition(mouseWorldPos);
         DrawLineRenderer(m_headGun, m_rayGun, 200f);
+
+        //FindAllEnemyOnRay(m_headGun, m_rayGun);
+    }
+
+    private void FindAllEnemyOnRay(Vector3 headGun, Ray ray)
+    {
+        RaycastHit[] raycastAll = Physics.RaycastAll(ray, float.MaxValue);
+        Debug.Log(raycastAll.Length);
     }
 }

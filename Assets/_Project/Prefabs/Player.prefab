@@ -135,6 +135,7 @@ MonoBehaviour:
   m_gunController: {fileID: 1539893200903033818}
   m_aimTarget: {fileID: 8910289198183317802}
   m_lineRenderer: {fileID: 4584359241646058394}
+  m_bulletPrefab: {fileID: 1631175264409460026, guid: f6d4db66ef578e94284a668538189085, type: 3}
 --- !u!50 &3693006949354413617
 Rigidbody2D:
   serializedVersion: 4
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4828792437310936821
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.037822783, y: 0.10441548}
+  m_Offset: {x: -0.0054522753, y: -0.05540265}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -180,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62767017, y: 0.79116905}
+  m_Size: {x: 0.22545308, y: 0.4715328}
   m_EdgeRadius: 0
 --- !u!1001 &4639663053105897256
 PrefabInstance:

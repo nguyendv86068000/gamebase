@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4974028881157619008}
   - component: {fileID: 6881173188454841861}
   - component: {fileID: 4905578208041538697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Closed Sprite Shape
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,8 +90,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.29049993, y: 1.952773, z: 0}
-    m_Extent: {x: 2.661833, y: 3.3131425, z: 0}
+    m_Center: {x: 0.6924405, y: 1.9900042, z: 0}
+    m_Extent: {x: 3.6447735, y: 3.3503737, z: 0}
 --- !u!114 &6881173188454841861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +177,16 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
+    - position: {x: 4.030726, y: 3.5167773, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
     - position: {x: 2.0979507, y: -0.95930743, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -225,10 +235,12 @@ EdgeCollider2D:
   - {x: -1.4438763, y: 1.2003566}
   - {x: 1.1232612, y: 1.1844358}
   - {x: 1.1563338, y: 5.2659154}
-  - {x: 2.3713331, y: 5.2330475}
-  - {x: 2.347037, y: -1.201764}
-  - {x: -2.2508395, y: -1.343222}
-  - {x: -2.3039455, y: -1.3448559}
+  - {x: 2.1271834, y: 5.2396507}
+  - {x: 2.3584225, y: 5.121911}
+  - {x: 4.337214, y: 3.5961442}
+  - {x: 2.264476, y: -1.204294}
+  - {x: -2.2497876, y: -1.3431896}
+  - {x: -2.3039446, y: -1.3448559}
   - {x: -2.808187, y: -1.3603694}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}

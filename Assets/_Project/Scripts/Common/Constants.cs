@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Constants
 {
+    // tag name
+    public const string TAGNAME_WALL = "Wall";
+
+
 
     public const string CONFIG = "Config";
 
