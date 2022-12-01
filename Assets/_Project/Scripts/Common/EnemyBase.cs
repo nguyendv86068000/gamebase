@@ -8,11 +8,11 @@ public class EnemyBase : MonoBehaviour
     Sequence sequence;
     public void OnHitted()
     {
-        sequence = AnimSimple.Zoomer(gameObject, 1.2f, 1);
+        //sequence = AnimSimple.Zoomer(gameObject, 1.2f, 1);
     }
     public void OnIdle()
     {
-        sequence.Kill();
+        //sequence.Kill();
     }
     public void OnDie()
     {

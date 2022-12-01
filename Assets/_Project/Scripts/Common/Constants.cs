@@ -14,7 +14,8 @@ public class Constants
 
     // Scene
     public const string SCENE_LOADING = "Loading";
-    public const string SCENE_GAMEPLAY = "Gameplay";
+    public const string SCENE_MAINMENU = "MainMenu";
+    public const string SCENE_MAINGAME = "MainGame";
 
 
 

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
         {
             if(Vector3.Distance(transform.position, hit.point) < 0.1f)
             {
+                Debug.Log("đổi hường");
                 OnBounce();
                 direction = Vector3.Reflect(direction, hit.normal);
                 transform.position = hit.point;
@@ -49,7 +50,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        HideBullet();
+        //HideBullet();
     }
 
     private void HideBullet()
