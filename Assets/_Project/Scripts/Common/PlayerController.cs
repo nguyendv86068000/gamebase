@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 m_headGun;
     private Ray m_rayGun;
+    private List<EnemyBase> enemiesHitted;
 
     private void OnEnable()
     {
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         m_aimTarget.gameObject.SetActive(false);
         ClearAllPointLineRenderer();
+        enemiesHitted = new List<EnemyBase>();
     }
     private void InstantiateBullet()
     {
@@ -77,12 +80,24 @@ public class PlayerController : MonoBehaviour
         SetAimTargetPosition(mouseWorldPos);
         DrawLineRenderer(m_headGun, m_rayGun, 200f);
 
-        //FindAllEnemyOnRay(m_headGun, m_rayGun);
+        FindAllEnemyOnRay(m_headGun, m_rayGun.direction);
     }
 
-    private void FindAllEnemyOnRay(Vector3 headGun, Ray ray)
+    private void FindAllEnemyOnRay(Vector2 headGun, Vector2 direction)
     {
-        RaycastHit[] raycastAll = Physics.RaycastAll(ray, float.MaxValue);
-        Debug.Log(raycastAll.Length);
+        var raycastAll = Physics2D.RaycastAll(headGun, direction, 1000f).ToList();
+        var enemies = raycastAll.Where(p => p.collider.GetComponent<EnemyBase>() != null)
+            .Select(p => p.collider.GetComponent<EnemyBase>());
+        foreach (var enemy in enemies)
+        {
+            enemy.OnHitted();
+        }
+        foreach (var enemy in enemiesHitted)
+        {
+            if (!enemies.Contains(enemy))
+            {
+                enemy.OnIdle();
+            }
+        }
     }
 }

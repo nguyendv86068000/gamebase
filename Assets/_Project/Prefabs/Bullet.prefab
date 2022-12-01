@@ -129,7 +129,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -148,8 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 102297017536719895}
-  bulletSpeed: 1
+  bulletSpeed: 10
   bounceTime: 10
+  currentBounceTime: 0
   direction: {x: 0, y: 0, z: 0}
   layerMask:
     serializedVersion: 2

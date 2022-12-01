@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private float bulletSpeed = 1f;
     [SerializeField] private int bounceTime = 10;
+    [SerializeField] private int currentBounceTime;
     [SerializeField] private Vector3 direction;
     [SerializeField] private LayerMask layerMask;
 
@@ -18,9 +19,9 @@ public class Bullet : MonoBehaviour
 
     public void Update()
     {
-        Vector3 nextPos = direction * Time.deltaTime * bulletSpeed;
-        Debug.DrawLine(transform.position, nextPos, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1000, layerMask);
+        //Vector3 nextPos = direction * Time.deltaTime * bulletSpeed;
+        //Debug.DrawLine(transform.position, nextPos, Color.green);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 2, layerMask);
         if(hit.collider != null)
         {
             if(Vector3.Distance(transform.position, hit.point) < 0.1f)
@@ -30,10 +31,6 @@ public class Bullet : MonoBehaviour
                 transform.position = hit.point;
             }
         }
-        //if(hit.collider != null)
-        //{
-        //        Debug.Log("adsadasd");
-        //}
         MoveAllowDirectionUpdate();
     }
 
@@ -44,7 +41,11 @@ public class Bullet : MonoBehaviour
 
     private void OnBounce()
     {
-
+        currentBounceTime++;
+        if (currentBounceTime > bounceTime)
+        {
+            HideBullet();
+        }
     }
     private void OnBecameInvisible()
     {
@@ -54,7 +55,14 @@ public class Bullet : MonoBehaviour
     private void HideBullet()
     {
         trailRenderer.Clear();
-        //Destroy(gameObject);
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Constants.TAGNAME_ENEMY))
+        {
+            collision.GetComponent<EnemyBase>().OnDie();
+        }
     }
 
 }
