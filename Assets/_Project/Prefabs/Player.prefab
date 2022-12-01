@@ -130,7 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98c4c4fa44a6f846858d8dc01f50aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunController: {fileID: 1539893200903033818}
+  m_gunController: {fileID: 1539893200903033818}
+  m_aimTarget: {fileID: 8910289198183317802}
+  m_lineRenderer: {fileID: 4584359241646058394}
 --- !u!1001 &4639663053105897256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,21 +140,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 661721945899937705}
     m_Modifications:
+    - target: {fileID: 4306796013258415618, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306796013258415618, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643767819211364938, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5992186142811042282, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5992186142811042282, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.479155
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5992186142811042282, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6778417
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5992186142811042282, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.034059
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5992186142811042282, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -204,3 +218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a387042476c5f64e8f1493131eb2cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!120 &4584359241646058394 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 9222684318184649906, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
+  m_PrefabInstance: {fileID: 4639663053105897256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8910289198183317802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4306796013258415618, guid: 717b16c98be35094fb0da3dcf001024e, type: 3}
+  m_PrefabInstance: {fileID: 4639663053105897256}
+  m_PrefabAsset: {fileID: 0}
