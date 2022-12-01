@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform m_aimTarget;
     [SerializeField] private LineRenderer m_lineRenderer;
 
+    private Vector3 m_headGun;
+    private Ray m_rayGun;
+
     void OnEnable()
     {
         EventManager.MouseButtonDown += HandleFingerDown;
@@ -30,20 +33,19 @@ public class PlayerController : MonoBehaviour
     {
         m_lineRenderer.positionCount = 0;
     }
-    private void DrawLineRenderer(Vector3 begin, Vector3 end, float distance)
+    private void DrawLineRenderer(Vector3 begin, Ray ray, float distance)
     {
         ClearAllPointLineRenderer();
-        Ray ray = new Ray(begin, end - begin);
-        Vector3 newEnd = ray.GetPoint(distance);
-        newEnd.z = 0;
+        Vector3 end = ray.GetPoint(distance);
+        end.z = 0;
         m_lineRenderer.positionCount = 2;
         m_lineRenderer.SetPosition(0, begin);
-        m_lineRenderer.SetPosition(1, newEnd);
+        m_lineRenderer.SetPosition(1, end);
     }
 
     public void SetAimTargetPosition(Vector3 pos)
     {
-        m_aimTarget.localPosition = new Vector3(pos.x, pos.y, m_aimTarget.localPosition.z);
+        m_aimTarget.position = new Vector3(pos.x, pos.y, 0);
     }
     private void HandleFingerDown()
     {
@@ -56,8 +58,13 @@ public class PlayerController : MonoBehaviour
     }
     void HandleFingerUpdate(Vector3 mousePos)
     {
+        m_headGun = transform.position;
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        mouseWorldPos.z = 0;
+        m_rayGun = new Ray(m_headGun, mouseWorldPos - m_headGun);
+
+
         SetAimTargetPosition(mouseWorldPos);
-        DrawLineRenderer(transform.position, mouseWorldPos, 200f);
+        DrawLineRenderer(m_headGun, m_rayGun, 200f);
     }
 }
