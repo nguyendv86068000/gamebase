@@ -26,4 +26,9 @@ public static class EventManager
     #endregion
 
 
+    #region pooler
+    // begin, direction
+    public static Action<Vector3, Vector3> PoolBullet;
+    #endregion
+
 }

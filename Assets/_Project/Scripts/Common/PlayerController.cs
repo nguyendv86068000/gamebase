@@ -35,10 +35,13 @@ public class PlayerController : MonoBehaviour
     }
     private void InstantiateBullet()
     {
-        Bullet bullet = Instantiate(m_bulletPrefab);
-        // đoạn này cho ra ngoài một chút để tránh làm ảnh hưởng tới player do 2 collison chồng nhau
-        bullet.transform.position = m_rayGun.GetPoint(0.5f);
-        bullet.Init(m_rayGun.direction.normalized);
+        //Bullet bullet = Instantiate(m_bulletPrefab);
+        //// đoạn này cho ra ngoài một chút để tránh làm ảnh hưởng tới player do 2 collison chồng nhau
+        //bullet.transform.position = m_rayGun.GetPoint(0.5f);
+        //bullet.Init(m_rayGun.direction.normalized);
+        Vector3 position = m_rayGun.GetPoint(0.5f);
+        Vector3 direction = m_rayGun.direction.normalized;
+        EventManager.PoolBullet.Invoke(position, direction);
     }
 
     private void ClearAllPointLineRenderer()

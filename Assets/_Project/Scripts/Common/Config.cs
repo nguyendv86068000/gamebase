@@ -12,4 +12,10 @@ public class Config : ScriptableObject
 
     [SerializeField] private bool isDebug;
     public static bool IsDebug => Instance.isDebug;
+
+
+    // pramas game
+    [Header("Paramas game")]
+    [SerializeField] private int bounceTime;
+    public static int BounceTime => Instance.bounceTime;
 }

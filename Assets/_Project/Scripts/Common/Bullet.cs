@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPoolerSpawn
 {
     [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private float bulletSpeed = 1f;
-    [SerializeField] private int bounceTime = 10;
+    [SerializeField] private int bounceTime => Config.BounceTime;
     [SerializeField] private int currentBounceTime;
     [SerializeField] private Vector3 direction;
     [SerializeField] private LayerMask layerMask;
-
-    public void Init(Vector3 dir)
+    private Action m_hideBullet;
+    
+    public void Initialize(Vector3 position, Vector3 direction, Action hideBullet)
     {
-        direction = dir;
+        ResetData();
+        transform.position = position;
+        this.direction = direction;
+        m_hideBullet = hideBullet;
     }
 
     public void Update()
     {
-        //Vector3 nextPos = direction * Time.deltaTime * bulletSpeed;
-        //Debug.DrawLine(transform.position, nextPos, Color.green);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 2, layerMask);
         if(hit.collider != null)
         {
@@ -56,14 +59,21 @@ public class Bullet : MonoBehaviour
     private void HideBullet()
     {
         trailRenderer.Clear();
-        Destroy(gameObject);
+        m_hideBullet?.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Constants.TAGNAME_ENEMY))
+        IAffectedByBullet dieElement = collision.GetComponent<IAffectedByBullet>();
+        if (dieElement != null)
         {
-            collision.GetComponent<EnemyBase>().OnDie();
+            dieElement.AffectedByBullet();
         }
     }
 
+    public void ResetData()
+    {
+        currentBounceTime = 0;
+        direction = Vector3.zero;
+        m_hideBullet = null;
+    }
 }

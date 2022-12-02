@@ -329,3 +329,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98f221083bad3941bde9b56b093a240, type: 3}
+--- !u!1001 &6939081442860100267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 539.762
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 960.3211
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.013905054
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217395, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939081442044217404, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}
+      propertyPath: m_Name
+      value: PoolManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 51a7435bceee85742a89efe8895f37ac, type: 3}

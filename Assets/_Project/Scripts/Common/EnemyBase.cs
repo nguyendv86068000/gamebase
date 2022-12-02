@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour, IAffectedByBullet, IDieable
 {
     Sequence sequence;
     public void OnHitted()
@@ -17,5 +17,9 @@ public class EnemyBase : MonoBehaviour
     public void OnDie()
     {
         Destroy(gameObject);
+    }
+    public void AffectedByBullet()
+    {
+        OnDie();
     }
 }
